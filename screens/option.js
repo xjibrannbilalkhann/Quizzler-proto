@@ -1,11 +1,16 @@
-import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View, TextInput, select} from 'react-native';
 import Title from '../components/title';
 
-const Home = ({navigation}) => {
+
+const Option = ({navigation}) => {
+
+    var data = ["Easy", "Medium", "Hard"];
+
+
   return (
-    <View style={styles.container}>
-      <Title titleText='QUIZZLER' />
+    <View style={styles.container}>      
+    <Title titleText='QUIZZLER' />
       <View style={styles.bannerContainer}>
         <Image
           source={{
@@ -14,18 +19,28 @@ const Home = ({navigation}) => {
           style={styles.banner}
           resizeMode="contain"
         />
-        <Text style={styles.des}>Quizler would quiz your mind till the point where your mind can not quiz no more and thats when we know what your mind is capable of </Text>
       </View>
+
       <TouchableOpacity
-        onPress={() => navigation.navigate('Option')}
+        onPress={() => navigation.navigate('HistoryQuiz')}
         style={styles.button}>
-        <Text style={styles.buttonText}>Start</Text>
+        <Text style={styles.buttonText}>History Quiz</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('GKQuiz')}
+        style={styles.button}>
+        <Text style={styles.buttonText}>General Knowledge Quiz</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('SportsQuiz')}
+        style={styles.button}>
+        <Text style={styles.buttonText}>Sports Quiz</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default Home;
+export default Option;
 
 const styles = StyleSheet.create({
   des:{
